@@ -23,4 +23,6 @@ public interface CanCollide {
 	void setBoundSphereRadius(double radius);
 	
 	void notifyCollision(CanCollide collider);
+
+	boolean isVisible();
 }

@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import dev.hornetshell.physics.CanCollide;
 import dev.hornetshell.physics.CollisionGroup;
+import dev.hornetshell.util.Shapes;
 import javafx.scene.Group;
 
 /**
@@ -50,7 +51,7 @@ public class CollisionTask extends TimerTask {
 			
 			// check for each node for simple sphere collision
 			nodes.forEach(node2 -> {
-				if (node2 != node1) {
+				if (node2 != node1 && !(node1 instanceof Shapes.CollisionBox && node2 instanceof Shapes.CollisionBox)) {
 					final double[] position2 = node2.getPosition();
 					final double radius2 = node2.getBoundSphereRadius();
 					if (doCollide(position1, radius1, position2, radius2)) {
